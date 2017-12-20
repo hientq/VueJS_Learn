@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VueJS ex01</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ message }}</h1>
+		<h2>My name's : {{ name.split(' ')[1] }}</h2>
+		<h2>Full name's : {{ getFullName(firstName, lastName).name }}</h2>
+		<!-- <h2>{{ getFullName1() }}</h2> -->
+		<h3>age is : {{ age > 30 ? ' not me' : age	}}</h3>
+	</div>
+	
+
+	<script type="text/javascript">
+		var app = new Vue({
+					el: '#app',
+					data: {
+						message: 'Learning VueJS',
+						name: 'Quang Hien',
+						age: 25,
+						firstName: 'To',
+						lastName: 'Quang Hien'
+					},
+					methods: {
+						getFullName: function(first = '', last = '') {
+							//return this.firstName + ' ' + this.lastName;
+							return {
+								name: first + ' ' + last
+							};
+						},
+						/*getFullName1: () => { khong su dung function mui ten  cua ES6 la value
+							console.log(this);
+							return this.firstName + ' ' + this.lastName;
+						}*/
+					}
+				});
+
+	</script>
+</body>
+</html>

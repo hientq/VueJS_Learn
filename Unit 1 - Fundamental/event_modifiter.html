@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event modifiter</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>Event modifiers pratice</h1>
+	<div id="app">
+		<input type="text" v-on:keyup="name1Keyup">
+		<strong>Ouput : </strong> {{ name1 }}
+		<br><br>
+		<input type="text" v-on:keyup="name11 = $event.target.value">
+		<strong>Ouput : </strong> {{ name11 }}
+		<br><br>
+		<h2>press crtl + enter:</h2>
+		<input type="text" v-on:keyup.ctrl.enter="name2Keyup">
+		<strong>Output : </strong> {{ name2 }}
+		<br>
+		<h2>Prevent the submit event on the form below</h2>
+		<form action="" method="GET" v-on:submit.prevent>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		var ex = new Vue({
+			el: "#app",
+			data: {
+				name1 : '',
+				name2 : '',
+				name11 : ''
+			},
+			methods: {
+				name1Keyup: function() {
+					this.name1 = event.target.value;
+				},
+				name2Keyup: function() {
+					this.name2 = event.target.value;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

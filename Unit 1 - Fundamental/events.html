@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event in Vuejs</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	
+	<div id="app" > <!-- v-on:click="showDialog" -->
+		<button v-on:click="clickedButton('To Quang Hien', $event)">Button1</button>
+		<button v-on:click.stop="showDialog">Button2</button>
+		<button v-on:click.once="showDialog">Button2</button>
+		<a href="https://google.com" v-on:click.prevent="showDialog" target="_blank">Link</a>
+		<input v-on:keyup.space="showDialog">
+		<!-- enter
+		tab
+		delete (captures both “Delete” and, if the keyboard has it, “Backspace”)
+		esc
+		space
+		up
+		down
+		left
+		right -->
+	</div>
+
+	<div id="example-1">
+	  <button v-on:click="counter += 1">Add 1</button>
+	  <p>The button above has been clicked {{ counter }} times.</p>
+	</div>
+
+	
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				msg:''
+			},
+			methods: {
+				clickedButton: function(message, event) {
+					console.log(event);
+					alert(message);
+				},
+				showDialog: function() {
+					alert('Hello');
+				}
+			}
+		});
+
+		var example1 = new Vue({
+		  el: '#example-1',
+		  data: {
+		    counter: 0
+		  }
+		});
+	</script>
+</body>
+</html>

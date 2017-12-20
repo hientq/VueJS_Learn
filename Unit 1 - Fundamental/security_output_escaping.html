@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Security Outputting and escaping in html</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<h1>Security Outputting and escaping in html</h1>
+	<div id="app">
+		<div v-html="html"></div>
+	</div>
+	<br>
+	<div id="app1">
+		<h1>{{ movieTitle }}</h1> <!-- v-once khong quan tam thay doi event voi el -->
+		<button v-on:click="movieTitle = 'The Matrix Reloaded'">Change Movie Title</button>
+	</div>
+
+	<h3>Conditionally rendering element</h3>
+
+	<div id="app3">
+		<p v-if="age < 0">{{ age }} khong phai tuoi</p>
+		<p v-else-if="age > 0 && age < 15">qua tre</p>
+		<p v-else>{{ age }}</p>
+	</div>
+
+	<script type="text/javascript">
+		var ex = new Vue({
+			el : "#app",
+			data : {
+				html : '<h1 style="color:red;">Hello World</h1>'
+			}
+		});
+
+		var ex1 = new Vue({
+			el : "#app1",
+			data : {
+				movieTitle : 'The matrix'
+			}
+		});
+
+		var ex3 = new Vue({
+			el : "#app3",
+			data : {
+				age : 25
+			}
+		});
+	</script>
+</body>
+</html>

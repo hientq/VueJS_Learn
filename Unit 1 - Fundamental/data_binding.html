@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data binding</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model.trim="name">
+		<strong>Name : </strong> {{ name }}
+		<br>
+		<input type="text" v-model.number.lazy="age">
+		<strong>Age : </strong> {{ age }} , <strong>Typeof age : </strong>{{ typeof age }}
+	</div>
+
+
+	<script type="text/javascript">
+		var ex = new Vue({
+			el : "#app",
+			data : {
+				name : 'To Quang Hien',
+				age : 25
+			}
+		});
+	</script>
+</body>
+</html>
